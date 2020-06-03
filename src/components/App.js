@@ -1,11 +1,23 @@
-import React from 'react';
+import React, { useState } from "react";
+
+import Selector from "./Selector";
 
 const App = () => {
+  const [redditValue, setRedditValue] = useState("reactjs");
+
+  const handleOnSelect = (selectedValue) => {
+    setRedditValue(selectedValue);
+  };
+
   return (
     <div>
-      <h1>Initial Commit</h1>
+      <Selector
+        redditValue={redditValue}
+        onSelect={handleOnSelect}
+        options={["reactjs", "redux","redux-saga"]}
+      />
     </div>
   );
-}
+};
 
 export default App;
